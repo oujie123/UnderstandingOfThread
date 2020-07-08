@@ -13,7 +13,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockTest {
 
     private int num = 0;
-    //显示锁
+    //synchronized 天生就是可重入锁
+    //显示锁,可重入锁
     private Lock lock = new ReentrantLock();
 
     //错误写法
@@ -30,6 +31,14 @@ public class LockTest {
         } finally {
             lock.unlock();
         }
+    }
+
+    //synchronized 天生是可重入锁，当第一次进入之后，方法就会被锁住，后面无法再次进入，最后会找出卡死状态
+    //可重入锁可以让你进入方法，但是会持有一把锁。
+    //可重入锁：可以递归调用方法持有锁，反复持有锁
+    public synchronized void add(){
+        num ++ ;
+        add();
     }
 
     private int getNum(){
