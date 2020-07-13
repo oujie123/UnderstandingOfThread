@@ -18,8 +18,9 @@ public class ThreadDeamon {
             }
         };
         //如果该线程是守护线程，那么main线程执行完毕之后，守护线程一起结束
-        //如果不是守护线程，Main线程会等待该线程执行结束后结束。如果Main执行的时间小于子线程，则等子线程执行完了就结束；否者Main执行完了结束。
-        //thread.setDaemon(true);
+        //如果不是守护线程，Main线程会等待该线程执行结束后结束。
+        //如果是守护线程，子线程大于main的时间，main执行完了就结束，不管子线程。
+        thread.setDaemon(true);
         thread.start();
 
         Thread.sleep(10000);
