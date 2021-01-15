@@ -8,7 +8,7 @@ public class ThreadDeamon {
             public void run() {
                 super.run();
                 for (int i = 0; i < 5; i++) {
-                    System.out.println(getName() + "-----" + i);
+                    System.out.println(getName() + "----->" + i);
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -23,6 +23,7 @@ public class ThreadDeamon {
         thread.setDaemon(true);
         thread.start();
 
-        Thread.sleep(10000);
+        // 设置3000 6000观察守护线程内打印情况可以看出守护线程的生命周期
+        Thread.sleep(3000);
     }
 }

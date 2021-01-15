@@ -8,9 +8,9 @@ import java.util.concurrent.atomic.AtomicReference;
 public class UseAtomicReference {
     static AtomicReference<UserInfo> atomicUserRef;
     public static void main(String[] args) {
-        UserInfo user = new UserInfo("Mark", 15);//要修改的实体的实例
+        UserInfo user = new UserInfo("DY", 15);//要修改的实体的实例
         atomicUserRef = new AtomicReference(user);
-        UserInfo updateUser = new UserInfo("Bill",17);
+        UserInfo updateUser = new UserInfo("Jack",17);
         atomicUserRef.compareAndSet(user,updateUser);
 
         System.out.println(atomicUserRef.get());
@@ -30,14 +30,6 @@ public class UseAtomicReference {
         }
         public int getAge() {
             return age;
-        }
-
-        @Override
-        public String toString() {
-            return "UserInfo{" +
-                    "name='" + name + '\'' +
-                    ", age=" + age +
-                    '}';
         }
     }
 

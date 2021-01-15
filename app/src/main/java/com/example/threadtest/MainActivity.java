@@ -2,6 +2,7 @@ package com.example.threadtest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
